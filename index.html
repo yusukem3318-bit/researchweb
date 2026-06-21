@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山田 太郎 — 研究者</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-name"><a href="index.html">山田 太郎</a></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="メニュー">&#9776;</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero / About -->
+    <section id="about" class="section hero">
+      <div class="container hero-inner">
+        <div class="hero-photo">
+          <img src="img/profile.jpg" alt="山田 太郎" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-placeholder">YT</div>
+        </div>
+        <div class="hero-text">
+          <h1>山田 太郎 <span class="name-en">Taro Yamada</span></h1>
+          <p class="affiliation">○○大学 大学院情報科学研究科 准教授</p>
+          <p class="bio">
+            機械学習と自然言語処理を専門とする研究者です。特に大規模言語モデルの解釈可能性と、
+            低リソース言語への応用に取り組んでいます。
+            博士（情報科学）。○○大学院修了後、△△研究所を経て現職。
+          </p>
+          <div class="hero-links">
+            <a href="mailto:yamada@example.ac.jp" class="btn btn-primary">Email</a>
+            <a href="cv.pdf" class="btn btn-outline">CV (PDF)</a>
+            <a href="https://github.com/" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://scholar.google.com/" class="btn btn-outline" target="_blank" rel="noopener">Google Scholar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section class="section news-section">
+      <div class="container">
+        <h2 class="section-title">News</h2>
+        <ul class="news-list">
+          <li><span class="news-date">2026.06</span> ACL 2026 に論文が採択されました。</li>
+          <li><span class="news-date">2026.04</span> ○○科学研究費 基盤研究(B) に採択されました。</li>
+          <li><span class="news-date">2025.12</span> NeurIPS 2025 Workshop で招待講演を行いました。</li>
+          <li><span class="news-date">2025.09</span> 新しいプロジェクト「低リソース言語のための適応的LLM」を開始しました。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="section">
+      <div class="container">
+        <h2 class="section-title">Research</h2>
+        <p class="section-intro">
+          私の研究は、言語モデルの内部機構を理解し、多様な言語・文化的背景に適応させることを目標としています。
+        </p>
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-icon">🔍</div>
+            <h3>言語モデルの解釈可能性</h3>
+            <p>トランスフォーマーモデルが知識をどのように表現・利用するかを解析し、モデルの信頼性向上に貢献します。</p>
+            <div class="research-tags">
+              <span class="tag">LLM</span>
+              <span class="tag">Interpretability</span>
+              <span class="tag">Probing</span>
+            </div>
+          </div>
+          <div class="research-card">
+            <div class="research-icon">🌏</div>
+            <h3>低リソース言語NLP</h3>
+            <p>データが少ない言語に対し、転移学習・クロスリンガル手法を用いて高性能なNLPシステムを実現します。</p>
+            <div class="research-tags">
+              <span class="tag">Low-resource</span>
+              <span class="tag">Cross-lingual</span>
+              <span class="tag">Transfer Learning</span>
+            </div>
+          </div>
+          <div class="research-card">
+            <div class="research-icon">⚖️</div>
+            <h3>公平性・バイアス除去</h3>
+            <p>言語モデルに含まれる社会的バイアスを検出・軽減するための手法を研究しています。</p>
+            <div class="research-tags">
+              <span class="tag">Fairness</span>
+              <span class="tag">Bias</span>
+              <span class="tag">Ethics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Publications</h2>
+
+        <h3 class="pub-year">2026</h3>
+        <ul class="pub-list">
+          <li class="pub-item">
+            <p class="pub-title">Probing Factual Knowledge in Multilingual Language Models</p>
+            <p class="pub-authors"><strong>T. Yamada</strong>, A. Suzuki, B. Chen</p>
+            <p class="pub-venue">Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026)</p>
+            <div class="pub-links">
+              <a href="#" class="pub-link">Paper</a>
+              <a href="#" class="pub-link">Code</a>
+              <a href="#" class="pub-link">Slides</a>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="pub-year">2025</h3>
+        <ul class="pub-list">
+          <li class="pub-item">
+            <p class="pub-title">Cross-lingual Transfer for Low-resource Morphologically Rich Languages</p>
+            <p class="pub-authors"><strong>T. Yamada</strong>, C. Kim, D. Nguyen</p>
+            <p class="pub-venue">Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP 2025)</p>
+            <div class="pub-links">
+              <a href="#" class="pub-link">Paper</a>
+              <a href="#" class="pub-link">Code</a>
+            </div>
+          </li>
+          <li class="pub-item">
+            <p class="pub-title">Detecting Gender Bias in Japanese Text Generation Models</p>
+            <p class="pub-authors">E. Sato, <strong>T. Yamada</strong></p>
+            <p class="pub-venue">言語処理学会第31回年次大会 (NLP 2025)</p>
+            <div class="pub-links">
+              <a href="#" class="pub-link">Paper</a>
+            </div>
+          </li>
+        </ul>
+
+        <p class="pub-more"><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar で全論文を見る →</a></p>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="section">
+      <div class="container">
+        <h2 class="section-title">CV</h2>
+        <div class="cv-grid">
+          <div class="cv-block">
+            <h3>Education</h3>
+            <ul class="cv-list">
+              <li>
+                <span class="cv-year">2018</span>
+                <div>
+                  <strong>博士（情報科学）</strong><br>
+                  ○○大学大学院 情報科学研究科
+                </div>
+              </li>
+              <li>
+                <span class="cv-year">2015</span>
+                <div>
+                  <strong>修士（情報科学）</strong><br>
+                  ○○大学大学院 情報科学研究科
+                </div>
+              </li>
+              <li>
+                <span class="cv-year">2013</span>
+                <div>
+                  <strong>学士（工学）</strong><br>
+                  △△大学 工学部 情報工学科
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="cv-block">
+            <h3>Positions</h3>
+            <ul class="cv-list">
+              <li>
+                <span class="cv-year">2022–</span>
+                <div>
+                  <strong>准教授</strong><br>
+                  ○○大学 大学院情報科学研究科
+                </div>
+              </li>
+              <li>
+                <span class="cv-year">2018–2022</span>
+                <div>
+                  <strong>研究員</strong><br>
+                  △△研究所 自然言語処理グループ
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="cv-block">
+            <h3>Awards</h3>
+            <ul class="cv-list">
+              <li>
+                <span class="cv-year">2024</span>
+                <div>ACL Outstanding Paper Award</div>
+              </li>
+              <li>
+                <span class="cv-year">2022</span>
+                <div>言語処理学会 若手奨励賞</div>
+              </li>
+            </ul>
+          </div>
+          <div class="cv-block">
+            <h3>Grants</h3>
+            <ul class="cv-list">
+              <li>
+                <span class="cv-year">2026–</span>
+                <div>科研費 基盤研究(B)「低リソース言語のための適応的LLM」</div>
+              </li>
+              <li>
+                <span class="cv-year">2022–2025</span>
+                <div>科研費 若手研究「多言語モデルの解釈可能性」</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: 2rem;">
+          <a href="cv.pdf" class="btn btn-primary">CV をダウンロード (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section alt-bg">
+      <div class="container contact-inner">
+        <h2 class="section-title">Contact</h2>
+        <p>共同研究・講演依頼・学生指導についてのお問い合わせはお気軽にどうぞ。</p>
+        <ul class="contact-list">
+          <li>📧 <a href="mailto:yamada@example.ac.jp">yamada@example.ac.jp</a></li>
+          <li>🏢 ○○大学 情報科学研究科棟 305号室<br>〒000-0000 ○○市○○町1-1</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Taro Yamada. Built with HTML &amp; CSS.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Smooth scroll + close nav on link click
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        navLinks.classList.remove('open');
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navItems.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
