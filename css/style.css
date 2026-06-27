@@ -385,6 +385,7 @@ footer {
 }
 
 .gallery-item {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius);
   aspect-ratio: 4 / 3;
@@ -400,6 +401,33 @@ footer {
 
 .gallery-item:hover img {
   transform: scale(1.04);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.72));
+  color: white;
+  padding: 1.5rem 0.8rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+}
+
+.caption-loc {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.caption-name {
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 /* ===== Mobile ===== */
