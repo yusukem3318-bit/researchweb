@@ -403,6 +403,8 @@ footer {
   transform: scale(1.04);
 }
 
+.gallery-extra { display: none; }
+
 .gallery-caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
