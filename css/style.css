@@ -242,11 +242,39 @@ nav {
   margin-bottom: 0.5rem;
 }
 
-#field-map {
-  height: 420px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+.island-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.island-item {
+  position: relative;
   overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 4 / 3;
+}
+
+.island-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.island-item:hover img {
+  transform: scale(1.05);
+}
+
+.island-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 1.2rem 0.6rem 0.45rem;
+  text-align: center;
 }
 
 /* ===== Research Cards ===== */
@@ -483,6 +511,5 @@ footer {
   .research-grid { grid-template-columns: 1fr; }
   .research-layout { grid-template-columns: 1fr; }
   .research-map-wrap { position: static; }
-  #field-map { height: 280px; }
   .section { padding: 3.5rem 0; }
 }
