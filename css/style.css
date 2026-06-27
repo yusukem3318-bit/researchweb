@@ -223,6 +223,32 @@ nav {
 .news-list li { display: flex; gap: 1rem; font-size: 0.93rem; }
 .news-date { color: var(--accent); font-weight: 500; white-space: nowrap; min-width: 60px; }
 
+/* ===== Research Layout ===== */
+.research-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.research-map-wrap { position: sticky; top: calc(var(--nav-h) + 1rem); }
+
+.map-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+#field-map {
+  height: 420px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
 /* ===== Research Cards ===== */
 .research-grid {
   display: grid;
@@ -455,5 +481,8 @@ footer {
 
   .cv-grid { grid-template-columns: 1fr; gap: 2rem; }
   .research-grid { grid-template-columns: 1fr; }
+  .research-layout { grid-template-columns: 1fr; }
+  .research-map-wrap { position: static; }
+  #field-map { height: 280px; }
   .section { padding: 3.5rem 0; }
 }

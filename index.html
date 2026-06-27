@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yusuke　Magome — Islander </title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
@@ -65,38 +66,46 @@
     <section id="research" class="section">
       <div class="container">
         <h2 class="section-title">Research</h2>
-        <p class="section-intro">
-          私の研究は、言語モデルの内部機構を理解し、多様な言語・文化的背景に適応させることを目標としています。
-        </p>
-        <div class="research-grid">
-          <div class="research-card">
-            <div class="research-icon">🔍</div>
-            <h3>言語モデルの解釈可能性</h3>
-            <p>トランスフォーマーモデルが知識をどのように表現・利用するかを解析し、モデルの信頼性向上に貢献します。</p>
-            <div class="research-tags">
-              <span class="tag">LLM</span>
-              <span class="tag">Interpretability</span>
-              <span class="tag">Probing</span>
-            </div>
+        <div class="research-layout">
+          <div class="research-map-wrap">
+            <p class="map-label">Field Sites</p>
+            <div id="field-map"></div>
           </div>
-          <div class="research-card">
-            <div class="research-icon">🌏</div>
-            <h3>低リソース言語NLP</h3>
-            <p>データが少ない言語に対し、転移学習・クロスリンガル手法を用いて高性能なNLPシステムを実現します。</p>
-            <div class="research-tags">
-              <span class="tag">Low-resource</span>
-              <span class="tag">Cross-lingual</span>
-              <span class="tag">Transfer Learning</span>
-            </div>
-          </div>
-          <div class="research-card">
-            <div class="research-icon">⚖️</div>
-            <h3>公平性・バイアス除去</h3>
-            <p>言語モデルに含まれる社会的バイアスを検出・軽減するための手法を研究しています。</p>
-            <div class="research-tags">
-              <span class="tag">Fairness</span>
-              <span class="tag">Bias</span>
-              <span class="tag">Ethics</span>
+          <div class="research-content">
+            <p class="section-intro">
+              私の研究は、言語モデルの内部機構を理解し、多様な言語・文化的背景に適応させることを目標としています。
+            </p>
+            <div class="research-grid">
+              <div class="research-card">
+                <div class="research-icon">🔍</div>
+                <h3>言語モデルの解釈可能性</h3>
+                <p>トランスフォーマーモデルが知識をどのように表現・利用するかを解析し、モデルの信頼性向上に貢献します。</p>
+                <div class="research-tags">
+                  <span class="tag">LLM</span>
+                  <span class="tag">Interpretability</span>
+                  <span class="tag">Probing</span>
+                </div>
+              </div>
+              <div class="research-card">
+                <div class="research-icon">🌏</div>
+                <h3>低リソース言語NLP</h3>
+                <p>データが少ない言語に対し、転移学習・クロスリンガル手法を用いて高性能なNLPシステムを実現します。</p>
+                <div class="research-tags">
+                  <span class="tag">Low-resource</span>
+                  <span class="tag">Cross-lingual</span>
+                  <span class="tag">Transfer Learning</span>
+                </div>
+              </div>
+              <div class="research-card">
+                <div class="research-icon">⚖️</div>
+                <h3>公平性・バイアス除去</h3>
+                <p>言語モデルに含まれる社会的バイアスを検出・軽減するための手法を研究しています。</p>
+                <div class="research-tags">
+                  <span class="tag">Fairness</span>
+                  <span class="tag">Bias</span>
+                  <span class="tag">Ethics</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -295,7 +304,31 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
+    // Field site map
+    const map = L.map('field-map', { zoomControl: true, scrollWheelZoom: false })
+      .setView([36.5, 139.5], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const siteStyle = { radius: 8, fillColor: '#2563eb', color: '#fff', weight: 2, fillOpacity: 0.9 };
+    const sites = [
+      { name: 'つくば', lat: 36.083, lng: 140.083 },
+      { name: '佐渡島', lat: 38.023, lng: 138.367 },
+      { name: '大島',   lat: 34.73,  lng: 139.38  },
+      { name: '新島',   lat: 34.37,  lng: 139.27  },
+      { name: '式根島', lat: 34.32,  lng: 139.22  },
+      { name: '三宅島', lat: 34.08,  lng: 139.53  },
+      { name: '八丈島', lat: 33.13,  lng: 139.77  },
+    ];
+    sites.forEach(s => {
+      L.circleMarker([s.lat, s.lng], siteStyle)
+        .addTo(map)
+        .bindPopup(`<strong>${s.name}</strong>`, { offset: [0, -4] });
+    });
+
     function toggleGallery() {
       const extras = document.querySelectorAll('.gallery-extra');
       const btn = document.getElementById('gallery-toggle');
