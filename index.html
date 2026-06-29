@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yusuke　Magome — Islander </title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
@@ -68,24 +69,7 @@
         <div class="research-layout">
           <div class="research-map-wrap">
             <p class="map-label">Field Sites — 伊豆諸島</p>
-            <div class="island-grid">
-              <div class="island-item">
-                <img src="img/gallery/oshima_shiromadara.jpg" alt="大島" loading="lazy">
-                <span class="island-label">大島</span>
-              </div>
-              <div class="island-item">
-                <img src="img/gallery/niijima_hikigaeru.jpg" alt="新島" loading="lazy">
-                <span class="island-label">新島</span>
-              </div>
-              <div class="island-item">
-                <img src="img/gallery/miyakejima_hikigaeru_breeding.jpg" alt="三宅島" loading="lazy">
-                <span class="island-label">三宅島</span>
-              </div>
-              <div class="island-item">
-                <img src="img/gallery/hachijojima_sakulily.jpg" alt="八丈島" loading="lazy">
-                <span class="island-label">八丈島</span>
-              </div>
-            </div>
+            <div id="field-map"></div>
           </div>
           <div class="research-content">
             <p class="section-intro">
@@ -320,7 +304,35 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
+    const fieldMap = L.map('field-map', { scrollWheelZoom: false, zoomControl: true });
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://opentopomap.org">OpenTopoMap</a> | © OpenStreetMap',
+      maxZoom: 15
+    }).addTo(fieldMap);
+
+    const islands = [
+      { name: '大島',   lat: 34.73,  lng: 139.38 },
+      { name: '新島',   lat: 34.37,  lng: 139.27 },
+      { name: '三宅島', lat: 34.08,  lng: 139.53 },
+      { name: '八丈島', lat: 33.13,  lng: 139.77 },
+    ];
+
+    islands.forEach(island => {
+      L.marker([island.lat, island.lng], {
+        icon: L.divIcon({
+          className: 'island-map-label',
+          html: `<span>${island.name}</span>`,
+          iconSize: [60, 24],
+          iconAnchor: [30, 12]
+        })
+      }).addTo(fieldMap);
+    });
+
+    const bounds = L.latLngBounds(islands.map(i => [i.lat, i.lng]));
+    fieldMap.fitBounds(bounds.pad(0.35));
+
     function toggleGallery() {
       const extras = document.querySelectorAll('.gallery-extra');
       const btn = document.getElementById('gallery-toggle');
